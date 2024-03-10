@@ -1,0 +1,1 @@
+export const errorCatch = error => error.response ? `Error code ${error.response.status}` : error.message ? error.message : error
