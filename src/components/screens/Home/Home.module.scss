@@ -1,11 +1,22 @@
-.containerHeading {
+.containerCenter {
 	margin-left: 10%;
 	margin-right: 10%;
 	display: flex;
 	justify-content: center;
+}
 
-	.heading {
-		font-size: 30px;
-		margin-bottom: 50px;
-	}
+.heading {
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+
+.button {
+	width: 15%;
+	font-size: 15px;
+	border: none;
+	border-radius: 10px;
+	background-color: #81d8d0;
+	padding: 5px;
+	cursor: pointer;
+	margin: 0px;
 }

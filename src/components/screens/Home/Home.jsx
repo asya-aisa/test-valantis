@@ -24,7 +24,7 @@ const Home = () => {
 
 	return (
 		<>
-			<div className={styles.containerHeading}>
+			<div className={styles.containerCenter}>
 				<Heading title='Интернет магазин' className={styles.heading} />
 			</div>
 
@@ -34,7 +34,9 @@ const Home = () => {
 				onSubmitName={onSubmitName}
 			/>
 
-			<button onClick={showAll}>Показать все</button>
+			<div className={styles.containerCenter}>
+				<button className={styles.button} onClick={showAll}>Показать все</button>
+			</div>
 
 			<span>Страница №{page}</span>
 
