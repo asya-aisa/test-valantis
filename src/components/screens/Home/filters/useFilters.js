@@ -5,6 +5,8 @@ import { ProductService } from '../../../../services/product.service'
 
 export const useFilters = () => {
 	const [filterArr, setFilterArr] = useState()
+	const [filter, setFilter] = useState('')
+	const [showFilter, setShowFilter] = useState(false)
 
 	const { mutate, isSuccess } = useMutation({
 		mutationKey: ['get filter'],
@@ -19,6 +21,8 @@ export const useFilters = () => {
 	})
 
 	const onSubmitBrand = data => {
+		setShowFilter(true)
+		setFilter('брэнду')
 		if (data.brand.value === 'No name') {
 			mutate({
 				brand: null,
@@ -31,12 +35,16 @@ export const useFilters = () => {
 	}
 
 	const onSubmitPrice = data => {
+		setShowFilter(true)
+		setFilter('цене')
 		mutate({
 			price: +data.price,
 		})
 	}
 
 	const onSubmitName = data => {
+		setShowFilter(true)
+		setFilter('названию')
 		mutate(data)
 	}
 
@@ -46,5 +54,8 @@ export const useFilters = () => {
 		onSubmitName,
 		isSuccess,
 		filterArr,
+		showFilter,
+		setShowFilter,
+		filter
 	}
 }

@@ -30,7 +30,7 @@ body {
 		border: 1px solid #81d8d0 !important;
 		color: black !important;
 		font-size: 18px !important;
-		width: 200%;
+		width: 220px;
 		&--is-focused {
 			border-color: transparent !important;
 			box-shadow: 0 0 0 1px rgba(#81d8d0, 0.3) !important;
@@ -67,12 +67,11 @@ body {
 	}
 
 	&__placeholder {
-		font-family: "Open Sans", sans-serif !important;
+		font-family: 'Open Sans', sans-serif !important;
 		font-optical-sizing: auto !important;
 		font-weight: 400 !important;
 		font-style: normal !important;
-		font-variation-settings:
-			"wdth" 100 !important;
+		font-variation-settings: 'wdth' 100 !important;
 		color: #767676 !important;
 		margin-left: 6px !important;
 		text-align: left;
@@ -86,4 +85,8 @@ body {
 	&__input {
 		color: black !important;
 	}
+}
+
+.loader {
+	border-radius: 7px;
 }

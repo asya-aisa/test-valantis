@@ -27,3 +27,4 @@ export const arrayBrands = arr => {
 
 	return arr
 }
+

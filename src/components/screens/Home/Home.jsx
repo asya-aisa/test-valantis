@@ -1,3 +1,5 @@
+import cn from 'clsx'
+import SkeletonLoader from '../../ui/SkeletonLoader'
 import Heading from '../../ui/heading/Heading'
 import styles from './Home.module.scss'
 import Filters from './filters/Filters'
@@ -17,6 +19,8 @@ const Home = () => {
 		onSubmitName,
 		showAll,
 		handlePageClick,
+		showFilter,
+		filter,
 	} = useProduct()
 
 	const products = Items || []
@@ -36,6 +40,16 @@ const Home = () => {
 			/>
 
 			<div className={styles.containerCenter}>
+				<div
+					className={cn(styles.showFilter, {
+						[styles.show]: showFilter,
+					})}
+				>
+					поиск по: {filter}
+				</div>
+			</div>
+
+			<div className={styles.containerCenter}>
 				<button className={styles.button} onClick={showAll}>
 					Показать все
 				</button>
@@ -43,9 +57,17 @@ const Home = () => {
 
 			<div className={styles.mainContainer}>
 				{isLoading || isLoadingIds ? (
-					<div>Loading...</div>
-				) : (
+					<SkeletonLoader
+						count={1}
+						className={styles.SkeletonLoader}
+						containerClassName={styles.containerLoader}
+					/>
+				) : products.length > 0 ? (
 					products.map((item, index) => <ProductItem key={index} item={item} />)
+				) : (
+					<div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+						На этой странице ничего не найдено
+					</div>
 				)}
 
 				{isSuccessAllIds && (
