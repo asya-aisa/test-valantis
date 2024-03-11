@@ -1,6 +1,7 @@
 import Heading from '../../ui/heading/Heading'
 import styles from './Home.module.scss'
 import Filters from './filters/Filters'
+import Pagination from './pagination/Pagination'
 import ProductItem from './productItem/ProductItem'
 import { useProduct } from './useProduct'
 
@@ -8,8 +9,6 @@ const Home = () => {
 	const {
 		AllIds,
 		isSuccessAllIds,
-		page,
-		setPage,
 		Items,
 		isLoading,
 		isLoadingIds,
@@ -17,6 +16,7 @@ const Home = () => {
 		onSubmitPrice,
 		onSubmitName,
 		showAll,
+		handlePageClick,
 	} = useProduct()
 
 	const products = Items || []
@@ -41,10 +41,6 @@ const Home = () => {
 				</button>
 			</div>
 
-			<div className={styles.containerCenter}>
-				<span>Страница №{page}</span>
-			</div>
-
 			<div className={styles.mainContainer}>
 				{isLoading || isLoadingIds ? (
 					<div>Loading...</div>
@@ -54,19 +50,7 @@ const Home = () => {
 
 				{isSuccessAllIds && (
 					<>
-						<button
-							onClick={() => setPage(prev => prev - 1)}
-							disabled={page === 1}
-						>
-							prev
-						</button>
-
-						<button
-							onClick={() => setPage(prev => prev + 1)}
-							disabled={page === pages}
-						>
-							next
-						</button>
+						<Pagination handlePageClick={handlePageClick} pages={pages} />
 					</>
 				)}
 			</div>

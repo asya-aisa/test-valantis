@@ -1,4 +1,4 @@
-const Field = ({ register, name, options, error, ...rest }) => {
+const Field = ({ register, name, options, ...rest }) => {
 	return (
 		<>
 			<input {...register(name, options)} {...rest} />

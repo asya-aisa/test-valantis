@@ -18,6 +18,7 @@ const FilterPrice = ({ onSubmit }) => {
 					register={register}
 					name='price'
 					options={{
+						required: 'это поле нужно заполнить', 
 						pattern: {
 							value: /[0-9]+/,
 							message: 'введите цифры',
@@ -31,6 +32,7 @@ const FilterPrice = ({ onSubmit }) => {
 
 				<button className={styles.button}>Найти</button>
 			</form>
+			
 			{errors.price && (
 				<div className={styles.error}>{errors.price.message}</div>
 			)}

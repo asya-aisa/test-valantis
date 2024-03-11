@@ -12,18 +12,27 @@ const FilterName = ({ onSubmit }) => {
 	})
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
-			<Field
-				register={register}
-				name='product'
-				placeholder='название'
-				error={errors.product}
-				type='text'
-				className={styles.input}
-			/>
+		<>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<Field
+					register={register}
+					name='product'
+					placeholder='название'
+					options={{
+						required: 'это поле нужно заполнить',
+					}}
+					error={errors.product}
+					type='text'
+					className={styles.input}
+				/>
 
-			<button className={styles.button}>Найти</button>
-		</form>
+				<button className={styles.button}>Найти</button>
+			</form>
+
+			{errors.product && (
+				<div className={styles.error}>{errors.product.message}</div>
+			)}
+		</>
 	)
 }
 

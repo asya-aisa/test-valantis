@@ -1,7 +1,5 @@
 import Home from './components/screens/Home/Home'
 
-
-
 function App() {
 	return (
 		<>

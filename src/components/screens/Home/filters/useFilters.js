@@ -28,7 +28,6 @@ export const useFilters = () => {
 				brand: data.brand.value,
 			})
 		}
-		console.log(data)
 	}
 
 	const onSubmitPrice = data => {

@@ -2,18 +2,17 @@ import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { errorCatch } from '../../../api/api.helpers'
 import { ProductService } from '../../../services/product.service'
-import { makeUniq } from '../../../utils/array/makeUniq'
 import { useFilters } from './filters/useFilters'
+import { makeUniq } from '../../../utils/array/array-helpers'
 
 export const useProduct = () => {
 	const { onSubmitBrand, onSubmitPrice, onSubmitName, isSuccess, filterArr } =
 		useFilters()
 
-	const [page, setPage] = useState(1)
+	const [offset, setOffset] = useState(0)
 	const [products, setProducts] = useState([])
 
 	let limit = 50
-	let offset = (page - 1) * limit
 
 	const {data: AllIds, isSuccess: isSuccessAllIds} = useQuery({
 		queryKey: ['get all ids'],
@@ -21,6 +20,12 @@ export const useProduct = () => {
 		select: ({ data }) => data.result,
 		retry: 1
 	})
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * limit) % AllIds.length;
+    setOffset(newOffset)
+		window.scrollTo(0, 0)
+  }
 
 	const {
 		error: errorIds,
@@ -73,14 +78,13 @@ export const useProduct = () => {
 	return {
 		AllIds,
 		isSuccessAllIds,
-		page,
-		setPage,
 		Items,
 		isLoading,
 		isLoadingIds,
 		onSubmitBrand,
 		onSubmitPrice,
 		onSubmitName,
-		showAll
+		showAll,
+		handlePageClick
 	}
 }
