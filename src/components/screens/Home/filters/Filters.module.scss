@@ -35,18 +35,23 @@
 				color: black;
 				font-size: 18px;
 				width: 75%;
-			
+				outline: none;
+
 				&::placeholder {
-					font-family: "Open Sans", sans-serif;
+					font-family: 'Open Sans', sans-serif;
 					font-optical-sizing: auto;
 					font-weight: 400;
 					font-style: normal;
-					font-variation-settings:
-						"wdth" 100;
+					font-variation-settings: 'wdth' 100;
 					color: #767676;
 					font-size: 15px;
 					padding-left: 10px;
 					text-align: left;
+				}
+
+				&:focus {
+					border: none;
+					box-shadow: 0 0 0 1px rgba(#81d8d0, 0.3);
 				}
 			}
 
@@ -61,12 +66,16 @@
 				cursor: pointer;
 				margin: 0px;
 			}
-			}
-
-
 		}
-
-		
 	}
+}
 
-
+.error {
+	margin-top: auto;
+	margin-left: 3px;
+	color: red;
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}

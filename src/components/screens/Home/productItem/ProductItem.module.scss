@@ -1,0 +1,43 @@
+.wrapper {
+	background-color: white;
+	border: 1px black solid;
+	width: 27%;
+	height: 200px;
+	margin-bottom: 30px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-style: normal;
+
+	.id {
+		color: #767676;
+		font-size: 13px;
+	}
+
+	.brand {
+		font-size: 25px;
+		min-height: 40px;
+	}
+
+	.product {
+		font-size: 17px;
+		text-align: center;
+		min-height: 60px;
+		opacity: 0.8;
+	}
+
+	.price {
+		text-align: center;
+		width: 50%;
+		font-size: 15px;
+		background-color: black;
+		color: white;
+		padding: 10px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		font-style: normal;
+	}
+}

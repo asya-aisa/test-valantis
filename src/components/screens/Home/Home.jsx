@@ -1,6 +1,7 @@
 import Heading from '../../ui/heading/Heading'
 import styles from './Home.module.scss'
 import Filters from './filters/Filters'
+import ProductItem from './productItem/ProductItem'
 import { useProduct } from './useProduct'
 
 const Home = () => {
@@ -35,23 +36,20 @@ const Home = () => {
 			/>
 
 			<div className={styles.containerCenter}>
-				<button className={styles.button} onClick={showAll}>Показать все</button>
+				<button className={styles.button} onClick={showAll}>
+					Показать все
+				</button>
 			</div>
 
-			<span>Страница №{page}</span>
+			<div className={styles.containerCenter}>
+				<span>Страница №{page}</span>
+			</div>
 
-			<div style={{ display: 'flex', flexWrap: 'wrap' }}>
+			<div className={styles.mainContainer}>
 				{isLoading || isLoadingIds ? (
 					<div>Loading...</div>
 				) : (
-					products.map((item, index) => (
-						<ul key={index} style={{ border: '1px red solid', margin: '5px' }}>
-							<li>Id: {item.id}</li>
-							<li>Name: {item.product}</li>
-							<li>Price: {item.price}</li>
-							<li>Brand: {item.brand}</li>
-						</ul>
-					))
+					products.map((item, index) => <ProductItem key={index} item={item} />)
 				)}
 
 				{isSuccessAllIds && (
